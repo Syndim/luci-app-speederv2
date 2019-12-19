@@ -75,7 +75,7 @@ start_instance() {
 	procd_append_param command -c
 	procd_append_param command -r ${server_ip}:${server_port}
 	procd_append_param command -l ${listen_ip}:${listen_port} && _log "info" "listening on: ${listen_ip}:${listen_port}"
-	[ -n "$key" ] && procd_append_param command --key ${key}
+	[ -n "$key" ] && procd_append_param command -k ${key}
 	[ -n "$fec_str" ] && procd_append_param command --fec ${fec_str} && _log "info" "FEC: ${fec_str}"
 	[ -n "$fec_timeout" ] && procd_append_param command --timeout ${fec_timeout} && _log "info" "timeout: ${fec_timeout}"
 	[ -n "$report" ] && procd_append_param command --report ${report}
